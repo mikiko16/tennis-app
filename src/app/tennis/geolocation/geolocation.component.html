@@ -1,0 +1,34 @@
+<div class="container">
+  <div style="text-align:center">
+    <h1>
+      Google Map Geolocation
+    </h1>
+  </div>
+  <div>
+    <div>
+      <button [disabled]="isTracking" class="btn btn-primary" (click)="findMe()">Find me</button>
+    </div>
+    <div>
+      <button [disabled]="isTracking" class="btn btn-primary" (click)="firstCourt()">Show me Sofia Tennis Center</button>
+    </div>
+    <div>
+      <button [disabled]="isTracking" class="btn btn-primary" (click)="secondCourt()">Show me NSA court</button>
+    </div>
+    <div>
+      <button [disabled]="isTracking" class="btn btn-primary" (click)="thirdCourt()">Show me Drujba court</button>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="text-center">
+          <h3>
+            <div #gmap style="width:100%;height:300px"></div>
+          </h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <footer>
+  </footer>
+</div>

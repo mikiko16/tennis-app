@@ -1,0 +1,17 @@
+<ul class="navbar-nav mr-auto">
+  <li class="nav-item active">
+    <a *ngIf="authService.checkIfLoggedIn()" class="nav-link" routerLink='/home'>Home</a>
+  </li>
+  <li class="nav-item">
+    <a *ngIf="!authService.checkIfLoggedIn()" class="nav-link" routerLink='/auth/signin'>Login</a>
+  </li>
+  <li class="nav-item">
+    <a *ngIf="!authService.checkIfLoggedIn()" class="nav-link" routerLink='/auth/register'>Register</a>
+  </li>
+  <li class="nav-item">
+    <a *ngIf="!authService.isAuthenticated()" class="nav-link" routerLink='/geolocation'>Where can i Play ?</a>
+  </li>
+  <li class="nav-item">
+    <a *ngIf="authService.checkIfLoggedIn()" class="nav-link" routerLink='auth/signin' (click)="logout()" >Logout</a>
+  </li>
+</ul> 

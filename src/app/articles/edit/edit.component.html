@@ -1,0 +1,30 @@
+<div class="container">
+  <h1>Edit Article</h1>
+  <form #editForm="ngForm" (ngSubmit)="edit()">
+  <div class="form-group">
+    <label class="form-control-label" for="new-make">Title</label>
+    <input class="form-control" id="new-make" type="text"
+    required
+    name="title"
+    [(ngModel)]="bindingModel.title"
+    #title="ngModel">
+  </div>
+  <div class="form-group">
+      <label class="form-control-label" for="new-make">Image</label>
+      <input class="form-control" id="new-image" type="text"
+      required
+      name="image"
+      [(ngModel)]="bindingModel.image"
+      #image="ngModel">
+    </div>
+    <div class="form-group">
+        <label class="form-control-label" for="new-make">Text</label>
+        <input class="form-control" id="new-text" type="text"
+        required
+        name="text"
+        [(ngModel)]="bindingModel.text"
+        #text="ngModel">
+      </div>
+      <button type="submit" class="btn btn-success">Edit</button>
+    </form>
+</div>

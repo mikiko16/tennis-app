@@ -1,0 +1,49 @@
+<ul class="navbar-nav mr-auto">
+  <li class="nav-item active">
+    <a class="nav-link">Hello {{username}}</a>
+  </li>
+  <li class="nav-item">
+    <a *ngIf="!authService.isAdmin()" class="nav-link" routerLink='/findplayer'>Find a Player</a>
+  </li>
+  <li class="nav-item">
+      <a *ngIf="!authService.isAdmin()" class="nav-link" routerLink='/allchallenges'>Find a Challenge</a>
+  </li>
+  <li class="nav-item">
+    <a *ngIf="!authService.isAdmin()" class="nav-link" routerLink='/mychallenges'>My Challenges</a>
+</li>
+<li class="nav-item">
+  <a *ngIf="!authService.isAdmin()" class="nav-link" routerLink='/geolocation'>Where can i Play ?</a>
+</li>
+<li class="nav-item">
+  <a *ngIf="authService.isAdmin()" class="nav-link" routerLink='/article/create'>Create Article</a>
+</li>
+<div *ngFor="let f of allarticles | async | paginate : {
+  id: 'allarticles',
+  itemsPerPage: pageSize,
+  currentPage: currentPage
+}" class="col-md-4">
+  <h1>{{f.title}}</h1>
+  <img
+    src="{{f.image}}"
+    lass="img-responsive">  
+  <label>Posted on {{ f.date | date : format : timezone }}</label>
+  <div>
+    <button routerLink="/article/view/{{f._id}}">View Article</button>
+  </div>
+  <div><button *ngIf="authService.isAdmin()" (click)="delete(f._id)">Delete</button>
+    <div><button *ngIf="authService.isAdmin()" routerLink="/article/edit/{{f._id}}" >Edit</button></div>
+  </div>
+</div>
+<pagination-controls
+      id="allarticles"
+      (pageChange)="changePage($event)"
+      maxSize="9"
+      directionLinks="true"
+      autoHide="true"
+      previousLabel="Previous"
+      nextLabel="Next"
+      screenReaderPaginationLabel="Pagination"
+      secreenReaderPageLabel="page"
+      screenReaderCurrentLabel="You're on page">
+</pagination-controls>
+</ul> 

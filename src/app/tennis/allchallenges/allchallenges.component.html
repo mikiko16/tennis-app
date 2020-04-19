@@ -1,0 +1,3 @@
+<div *ngFor="let f of challenges | async as chall">
+<a *ngIf="player(f._acl.creator)">{{f.name}} is looking for {{f.sex}} for playing tennis at {{f.time}}<button (click)="accept(f.name, f.time, f._id)">Accept</button></a>
+</div>

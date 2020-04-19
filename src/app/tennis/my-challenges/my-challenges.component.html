@@ -1,0 +1,3 @@
+<div *ngFor="let f of mychallanges | async as mychall">
+ <h2 *ngIf="play(f._acl.creator)">{{f.text}}.<button (click)="delete(f._id)">Retired</button></h2>
+</div>
